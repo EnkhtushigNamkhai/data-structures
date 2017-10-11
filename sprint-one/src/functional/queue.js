@@ -14,7 +14,7 @@ var Queue = function() {
   };
 
   someInstance.dequeue = function() {
-    if(Object.keys(storage).length === 0){
+    if (Object.keys(storage).length === 0) {
       return undefined;
     }
 

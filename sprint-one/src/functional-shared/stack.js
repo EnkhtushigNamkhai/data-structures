@@ -14,12 +14,12 @@ var Stack = function() {
 };
 
 var stackMethods = {
-  push:function(value){
+  push: function (value) {
     this.storage[this.topOfStack] = value;
     this.topOfStack++;
   },
-  pop:function(){
-    if(Object.keys(this.storage).length === 0){
+  pop: function() {
+    if (Object.keys(this.storage).length === 0) {
       return undefined;
     }
     this.topOfStack--;
@@ -27,7 +27,7 @@ var stackMethods = {
     delete this.storage[this.topOfStack];
     return popped;
   },
-  size:function(){
+  size: function() {
     return this.topOfStack;
   }};
 

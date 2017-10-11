@@ -5,23 +5,23 @@ var Stack = function() {
   this.topOfStack = 0;
 };
 
-Stack.prototype.push = function(value){
+Stack.prototype.push = function(value) {
   this.storage[this.topOfStack] = value;
   this.topOfStack++;
-}
+};
 
-Stack.prototype.pop = function(){
-  if(Object.keys(this.storage).length === 0){
+Stack.prototype.pop = function() {
+  if (Object.keys(this.storage).length === 0) {
     return undefined;
   }
   this.topOfStack--;
   var toPop = this.storage[this.topOfStack];
   delete this.storage[this.topOfStack];
   return toPop;
-}
+};
 
-Stack.prototype.size = function(){
+Stack.prototype.size = function() {
   return this.topOfStack;
-}
+};
 
 

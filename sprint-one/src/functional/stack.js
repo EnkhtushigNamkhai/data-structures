@@ -13,7 +13,7 @@ var Stack = function() {
   };
 
   someInstance.pop = function() {
-    if(Object.keys(storage).length === 0){
+    if (Object.keys(storage).length === 0) {
       return undefined;
     }
     topOfStack--;
