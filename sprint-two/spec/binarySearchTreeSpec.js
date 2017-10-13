@@ -20,6 +20,17 @@ describe('binarySearchTree', function() {
     expect(binarySearchTree.right.left.value).to.equal(6);
   });
 
+  it('should not insert if the same value is passed in twice', function() {
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(7);
+    binarySearchTree.insert(6);
+    expect(binarySearchTree.left.right).to.equal(null);
+    expect(binarySearchTree.left.left).to.equal(null);
+    expect(binarySearchTree.left.value).to.equal(2);
+    expect(binarySearchTree.right.left.value).to.equal(6);
+  });
+
   it('should have a working "contains" method', function() {
     binarySearchTree.insert(2);
     binarySearchTree.insert(3);
