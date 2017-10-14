@@ -27,7 +27,6 @@ var hashThree = function(str, max) {
 };
 
 var falsePositives = function(arr) {
-  debugger;
   var filter = new BloomFilter();
   var falsePositivesCount = 0;
   for (var i = 0; i < arr.length; i++) {
