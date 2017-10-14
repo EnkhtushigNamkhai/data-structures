@@ -4,9 +4,11 @@ var Tree = function(value) {
 
   // your code here
   newTree.children = [];  // fixed!
+  newTree.parent = null;
 
   newTree.addChild = treeMethods.addChild;
   newTree.contains = treeMethods.contains;
+  newTree.removeFromParent = treeMethods.removeFromParent;
 
   return newTree;
 };
@@ -14,7 +16,9 @@ var Tree = function(value) {
 var treeMethods = {};
 
 treeMethods.addChild = function(value) {
-  this.children.push(Tree(value));
+  var childNode = Tree(value);
+  childNode.parent = this;
+  this.children.push(childNode);
 };
 
 treeMethods.contains = function(target) {
@@ -28,6 +32,34 @@ treeMethods.contains = function(target) {
     }
   }
   return found;
+};
+
+treeMethods.removeFromParent = function() {
+  //want to remove this from Parent node
+  //parent node = this.parent
+  //if it doesn't have a parent
+  if (this.parent === null) {
+    return;
+  }
+
+  function recursivelyRemoveChildren(node) {
+    for (var i = 0; i < node.children.length; i++) {
+      recursivelyRemoveChildren(node.children[i]);
+      node.children.splice(i, 1);
+    }
+    return;
+  }
+
+  recursivelyRemoveChildren(this);
+
+
+  //remove ourself from our parent
+  var currNode = this.parent;
+  for (var i = 0; i < currNode.children.length; i++) {
+    if (currNode.children[i] === this) {
+      currNode.children.splice(i, 1);
+    }
+  }
 };
 
 

@@ -1,6 +1,6 @@
 var Set = function() {
   var set = Object.create(setPrototype);
-  set._storage = []; // fix me
+  set._storage = []; // fixed!
   return set;
 };
 
@@ -22,13 +22,23 @@ setPrototype.contains = function(item) {
 };
 
 setPrototype.remove = function(item) {
+  var newArray = new Array(this._storage.length - 1);
+  var index = 0;
   for (var i = 0; i < this._storage.length; i++) {
     if (this._storage[i] === item) {
-      this._storage.splice(i, 1);
+
+    } else {
+      newArray[index] = item;
+      index++;
     }
   }
+  this._storage = newArray;
 };
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ * add: O(n)
+ * contains: O(n)
+ * remove: O(n)
+ *
  */

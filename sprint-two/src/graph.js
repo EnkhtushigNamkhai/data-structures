@@ -123,10 +123,10 @@ Graph.prototype.forEachNode = function(cb) {
  * addNode: O(n)
  * contains: O(n)
  * removeNode: O(n + m*k) where m = the removed node's edges and k is the connected nodes edges
- * addEdge: O()
- * hasEdge: O()
- * removeEdge: O()
- * forEachNode: O()
+ * addEdge: O(n)
+ * hasEdge: O(n)
+ * removeEdge: O(n + k^2)
+ * forEachNode: O(n)
  */
 
 
